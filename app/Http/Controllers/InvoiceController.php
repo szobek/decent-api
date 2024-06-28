@@ -23,7 +23,13 @@ class InvoiceController extends Controller
         return $string;
     }
 public function randomDate(){
-    return rand(2000,202)."-".rand(1,12)."-".rand(1,28);
+    $month=rand(1,12);
+    $month=($month<10)?"0".$month:$month;
+
+    $day=rand(1,28);
+    $day=($day<10)?"0".$day:$day;
+
+    return rand(2000,2024)."-".$month."-".$day;
 }
 public function listInvoices(){
 
