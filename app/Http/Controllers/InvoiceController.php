@@ -22,6 +22,9 @@ class InvoiceController extends Controller
         }
         return $string;
     }
+public function randomDate(){
+    return rand(2000,202)."-".rand(1,12)."-".rand(1,28);
+}
 public function listInvoices(){
 
     /*
@@ -32,9 +35,12 @@ id?: number;
   price?: number;
   checked?: boolean;
     */
+
     $data=[
-        ["id"=>10,"name"=>$this->randomString()]
     ];
+    for($i=0;$i<30;$i++){
+        $data[$i]=["id"=>rand(1,1000),"name"=>$this->randomString(),"paid"=>rand(0,1),"date"=>$this->randomDate(),"price"=>rand(5,25),"checked"=>rand(0,1)];
+    }
     return response()->json($data);
 }
     //
