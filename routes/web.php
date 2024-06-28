@@ -17,4 +17,5 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 $router->get('/invoices', 'InvoiceController@listInvoices');
+$router->get('/ac', 'AddressController@getAddress');
 
