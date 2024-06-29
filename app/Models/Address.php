@@ -7,20 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
 
-    /*
-id?: number;
-  name?: string;
-  paid?: boolean;
-  date?: string;
-  price?: number;
-  checked?: boolean;
 
+    /*
+
+ $table->id();
+            
+            $table->text("name");
+            $table->integer("postal_code");
+            $table->text("address");
+            $table->text("phone");
+            $table->text("city");
+            $table->boolean("same_data")->default(false);
+            $table->text("measuring_point")->default('');
     */
-    protected $fillable = [
-        "name",
-        "date",
-        "price",
-        "paid",
-        "checked",
+        protected $fillable = [
+       "name",
+       "postal_code",
+       "address",
+       "phone",
+       "city",
+       "same_data",
+       "measuring_point",
     ];
 }

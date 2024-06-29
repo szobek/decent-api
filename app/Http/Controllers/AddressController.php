@@ -18,7 +18,7 @@ class AddressController extends Controller
 
 $data = Address::all();
 
-        return response()->json([]);
+        return response()->json($data);
     }
     //
 }
