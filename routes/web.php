@@ -18,4 +18,5 @@ $router->get('/', function () use ($router) {
 });
 $router->get('/invoices', 'InvoiceController@listInvoices');
 $router->get('/addresses', 'AddressController@getAddress');
+$router->get('/address/{id}', 'AddressController@getAddressById');
 
