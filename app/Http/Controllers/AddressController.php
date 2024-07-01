@@ -47,11 +47,13 @@ class AddressController extends Controller
         }
     }
 
-    public function updateAddress($id,Request $request){
+    public function updateAddress(Request $request,$id){
+$data=$request->all();
+//return response()->json($data);
         DB::beginTransaction();
         try{
             $address = Address::find($id);
-            $address->update($request->all());
+            $address->update($data);
             DB::commit();
            return response()->json(["message" => "Address updated"]);
         }catch (\Exception $e) {
