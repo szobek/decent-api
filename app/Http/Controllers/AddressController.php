@@ -46,5 +46,18 @@ class AddressController extends Controller
             return response()->json(["message" => "Address not created"]);
         }
     }
+
+    public function updateAddress($id,Request $request){
+        DB::beginTransaction();
+        try{
+            $address = Address::find($id);
+            $address->update($request->all());
+            DB::commit();
+           return response()->json(["message" => "Address updated"]);
+        }catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(["message" => "Address not updated"]);
+        }
+    }
     //
 }
