@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use Error;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AddressController extends Controller
 {
@@ -29,6 +33,18 @@ class AddressController extends Controller
 
 
         return response()->json($data);
+    }
+    public function createAddress(Request $request){
+        DB::beginTransaction();
+        try{
+
+            Address::create($request->all());
+            DB::commit();
+           return response()->json(["message" => "Address created"]);
+        }catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(["message" => "Address not created"]);
+        }
     }
     //
 }
