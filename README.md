@@ -1,7 +1,3 @@
-# Decent api
-
-![alt text](https://portal.decent.ec/api/v3/multi-tenant/configs/image/horizontal_logo?lastCache=1711461203 )<br />
-
 ## Use
 create database <br />
 modify .env <br />
